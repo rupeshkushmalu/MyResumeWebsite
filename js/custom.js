@@ -304,7 +304,7 @@
       });
 
 
-      if(document.getElementById("section-portfolio")){
+      if(document.getElementById("section-Certifications")){
             var $grid = $(".grid").isotope({
               itemSelector: ".all",
               percentPosition: true,

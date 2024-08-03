@@ -7,7 +7,6 @@
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/flexslider.css">
 	<link rel="stylesheet" href="fonts/icomoon/style.css">
-
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/style.css">
 
@@ -221,7 +220,7 @@
 
 					<p>
 						<a href="#section-contact" class="btn btn-primary px-4 py-2 btn-sm smoothscroll">Hire Me</a>
-						<a href="#" class="btn btn-secondary px-4 py-2 btn-sm">Download CV</a>
+						<a id="btnDownloadCV" class="btn btn-secondary px-4 py-2 btn-sm">Download CV</a>
 					</p>
 				</div>
 			</div>
@@ -249,7 +248,7 @@
 							<input type="email" class="form-control px-3 py-4" placeholder="Your Phone">
 						</div>
 						<div class="form-group mb-5">
-							<textarea class="form-control px-3 py-4"cols="30" rows="10" placeholder="Write a Message"></textarea>
+							<textarea class="form-control px-3 py-4" cols="30" rows="10" placeholder="Write a Message"></textarea>
 						</div>
 						<div class="form-group">
 							<input type="submit" class="btn btn-primary  px-4 py-3" value="Send Message">
@@ -304,7 +303,16 @@
 	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 	<script src="js/custom.js"></script>
-
+	<script>
+        document.getElementById('btnDownloadCV').addEventListener('click', function() {
+            // Set the file path relative to your website root
+            var filePath = 'resume/resume.pdf';
+            var link = document.getElementById('btnDownloadCV');
+            link.href = filePath;
+link.target = "_blank";
+            link.click();
+        });
+    </script>
 	<!-- Google Map -->
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     	<script src="js/google-map.js"></script> -->
