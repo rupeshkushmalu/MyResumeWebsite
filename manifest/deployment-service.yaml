@@ -19,11 +19,32 @@ spec:
         image: acrwsrcirculationdev.azurecr.io/rupeshkushmalu/myresumewebsite:latest
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 20
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: myresumewebsite-service
+  labels:
+    app: myresumewebsite
 spec:
   selector:
     app: myresumewebsite
@@ -31,4 +52,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: LoadBalancer
+  type: ClusterIP
